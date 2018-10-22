@@ -1,15 +1,19 @@
-import * as React from 'react';
-
+import * as React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
 interface IState {
 	name: string
 }
 class App extends React.Component<{}, IState> {
-	public state = {
-		name:'ahmed'
+
+	constructor(props: {})
+	{
+		super(props)
+		this.state = {
+			name:'ahmed'
+		}	
 	}
-	public render() {
+	public render():any
+	{
 		return (
 			<Router>
 			  <div>
@@ -18,14 +22,16 @@ class App extends React.Component<{}, IState> {
 			        {this.state.name}
 			      </div>
 			      <Switch>
-				      <Route exact={true} path='/' render={(match) => {
-				      	console.log(match);
-				      	return (<div> welcome to home </div>);
-				      }}/>
+				      <Route exact={true} path='/' render={(match) => <div> welcome to home </div>}/>
+				      <Route render={()=> <h1>this is 404 page</h1>}/>
 			      </Switch>
 			  </div>
 			</Router>
 		);
+	}
+	public componentWillMount():void
+	{
+		console.log(this)
 	}
 }
 
