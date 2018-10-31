@@ -1,6 +1,8 @@
 import * as React from 'react'
 // import modules
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+// css
+import './App.css'
 // pages
 import Home from './pages/Home'
 // start class
