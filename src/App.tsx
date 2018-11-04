@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // css
 import './App.css'
 // pages
+import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
 // start class
 interface IState {
@@ -16,14 +17,11 @@ class App extends React.Component < {}, IState > {
             name: 'ahmed'
         }
     }
-    public render(): any {
+    public render():any {
         return (
             <Router>
-			  <div>
-			      <div className="App">
-			        welcome to mario plan
-			        {this.state.name}
-			      </div>
+			  <div className='container-fluid'>
+			      <Navbar/>
 			      <Switch>
 				      <Route exact={true} path='/' component={Home}/>
 				      <Route render={()=> <h1>this is 404 page</h1>}/>
@@ -32,7 +30,7 @@ class App extends React.Component < {}, IState > {
 			</Router>
         );
     }
-    public componentDidMount(): void {
+    public componentDidMount():void {
         console.log(this)
     }
 }
