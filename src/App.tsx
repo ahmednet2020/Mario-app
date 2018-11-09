@@ -7,10 +7,10 @@ import './App.css'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
 // start class
-interface IState {
+interface IStateType {
     name: string
 }
-class App extends React.Component < {}, IState > {
+class App extends React.Component < {}, IStateType > {
     constructor(props: {}) {
         super(props)
         this.state = {

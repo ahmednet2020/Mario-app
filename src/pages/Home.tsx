@@ -1,15 +1,16 @@
 import * as React from 'react'
 
-interface Iprops {
+import Dashboard from '../components/dashboard/Dashboard'
+interface IpropsType {
     history: any,
     location: any,
     match: any
 }
-const Home = (props: Iprops) => {
+const Home = (props: IpropsType):JSX.Element => {
     return (
-        <div className='home'>
-			welcome to home page
-		</div>
+        <main className='home mt-5 mb-5'>
+			<Dashboard />
+		</main>
     )
 }
 export default Home;
