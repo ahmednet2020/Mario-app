@@ -7,25 +7,29 @@ import './App.css'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
 import Project from './pages/Project'
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
 // start class
 interface IStateType {
-    name: string
+    [key:string]:number|string
 }
-class App extends React.Component < {}, IStateType > {
-    constructor(props: {}) {
-        super(props)
-        this.state = {
-            name: 'ahmed'
-        }
+interface IPropsType {
+    [key:string]:number|string
+}
+class App extends React.Component < IPropsType, IStateType > {
+    constructor(props: IPropsType) {
+        super(props);
     }
     public render():any {
         return (
             <Router>
 			  <div className='container-fluid'>
-			      <Navbar/>
+			      <Navbar />
 			      <Switch>
                       <Route exact={true} path='/' component={Home}/>
 				      <Route path='/project/:projectid' component={Project}/>
+                      <Route path='/Signin' component={Signin} />
+                      <Route path='/Signup' component={Signup} />
 				      <Route render={()=> <h1>this is 404 page</h1>}/>
 			      </Switch>
 			  </div>

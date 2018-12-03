@@ -6,10 +6,10 @@ const SignedOutLinks = ():JSX.Element => {
 	return (
 		<ul className="navbar-nav ml-auto">
 			<li className='nav-item'>
-				<NavLink to='/' className='nav-link'>Signup</NavLink>
+				<NavLink to='/Signup' className='text-white nav-link rounded' activeClassName='bg-primary'>Sign Up</NavLink>
 			</li>
 			<li className='nav-item'>
-				<NavLink to='/' className='nav-link'>Login</NavLink>
+				<NavLink to='/Signin' className='text-white nav-link rounded' activeClassName='bg-primary'>Sign In</NavLink>
 			</li>
 		</ul>
 	)

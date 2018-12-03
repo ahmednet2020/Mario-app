@@ -1,7 +1,8 @@
 import * as React from 'react'
 
 interface IpropsType {
-  projectid:string|number
+  projectid:number,
+  [key:string]:any
 }
 const ProjectDetails = ({projectid}:IpropsType):JSX.Element => {
   return (
