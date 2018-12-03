@@ -29,12 +29,12 @@ class SignIn extends React.Component <IPropsType, IStateType> {
         <form onSubmit={this.handleSubmit}>
           <h5 className="text-dark">Sign In</h5>
           <div className="form-group">
+            <input type="email" id='email' autoComplete="false" className="form-control" onChange={this.handleChange} required={true}/>
             <label htmlFor="email">Email</label>
-            <input type="email" id='email' className="form-control" onChange={this.handleChange} />
           </div>
           <div className="form-group">
+            <input type="password" id='password' className="form-control" onChange={this.handleChange} required={true}/>
             <label htmlFor="password">Password</label>
-            <input type="password" id='password' className="form-control" onChange={this.handleChange} />
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-primary">Login</button>

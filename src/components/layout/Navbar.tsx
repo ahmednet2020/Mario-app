@@ -9,13 +9,16 @@ const Navbar = ():JSX.Element => {
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
 			<div className="container">
 				<Link to='/' className="navbar-brand">
-					<h1 className="h6">
+					<h1 className="h5 m-0">
 						MarioPlan
 					</h1>
 				</Link>
-				<div className="collapse navbar-collapse">
-					<SignedInLinks />
+				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+			    	<span className="navbar-toggler-icon"/>
+				</button>
+				<div className="collapse navbar-collapse" id='navbar'>
 					<SignedOutLinks />
+					<SignedInLinks />
 				</div>
 			</div>
 		</nav>
