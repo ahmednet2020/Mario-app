@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
@@ -25,4 +25,4 @@ const Navbar = ():JSX.Element => {
 	)
 }
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -1,16 +1,16 @@
 import * as React from 'react'
 
 interface IpropsType {
-  projectid:number,
   [key:string]:any
 }
 const ProjectDetails = ({projectid}:IpropsType):JSX.Element => {
+  console.log(projectid);
   return (
     <section className="project-details">
         <div className="card border-0">
           <div className="card-header border-0 bg-white text-dark">
             <div className="container">
-              <h2 className="card-title text-capitalize mb-4">project title - {projectid} </h2>
+              <h2 className="card-title text-capitalize mb-4">{projectid.title} - {projectid.id} </h2>
             </div>
           </div>
           <div className="card-body">

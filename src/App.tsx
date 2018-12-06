@@ -23,7 +23,6 @@ class App extends React.Component < IPropsType, IStateType > {
         super(props);
     }
     public render():any {
-      console.log(this.props);
         return (
         <Router>
   			  <div className='container-fluid'>

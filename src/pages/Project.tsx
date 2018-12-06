@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 // import components
+import Comment from '../components/projects/Comment'
 import ProjectDetails from '../components/projects/ProjectDetails'
 
 // interface for props
@@ -11,7 +12,8 @@ interface IpropsType {
 const Project = (props: IpropsType):JSX.Element => {
     return (
         <main className='project mt-5 mb-5'>
-			<ProjectDetails projectid={props.match.params.projectid}/>
+			<ProjectDetails projectid={props.location.state}/>
+			<Comment projectid={props.match.params.projectid}/>
 		</main>
     )
 }
