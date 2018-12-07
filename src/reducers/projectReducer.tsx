@@ -7,8 +7,18 @@ const initState = {
     {id: '5', title: 'egg hunt with yoshi', content: 'blah blah blah'}
   ]
 }
-const projectReducer = (state = initState, action:any) => {
-  return state;
+const projectReducer = (state = initState, action:any):any => {
+	switch (action.type) {
+		case "CREATE_PROJECT":
+			setTimeout(()=>{
+				console.log('create project', action.project);
+			}, 1000)
+		break;
+		default:
+  			return state;
+		break;
+	}
+	return state;
 };
 
 export default projectReducer;

@@ -1,11 +1,13 @@
 import * as React from 'react'
-
+import { connect } from 'react-redux'
+import { createProject } from '../../actions/projectActions'
 // interface state
 interface IStateType {
     [key:string]:number|string
 }
 // interface props
 interface IPropsType {
+    createProject:any,
     [key:string]:number|string
 }
 // start class of SignIn
@@ -21,7 +23,8 @@ class CreateProject extends React.Component <IPropsType, IStateType> {
   }
   public handleSubmit = (e:any) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createProject(this.state);
+    e.target.reset();
   }
   public render() {
     return (
@@ -44,5 +47,9 @@ class CreateProject extends React.Component <IPropsType, IStateType> {
     )
   }
 }
-
-export default CreateProject
+const mapDispatchToProps = (dispatch:any) => {
+  return {
+    createProject: (project:any) => dispatch(createProject(project))
+  }
+}
+export default connect(null, mapDispatchToProps)(CreateProject)
