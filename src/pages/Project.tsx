@@ -12,7 +12,7 @@ interface IpropsType {
 const Project = (props: IpropsType):JSX.Element => {
     return (
         <main className='project mt-5 mb-5'>
-			<ProjectDetails projectid={props.location.state}/>
+			<ProjectDetails project={props.location.state}/>
 			<Comment projectid={props.match.params.projectid}/>
 		</main>
     )

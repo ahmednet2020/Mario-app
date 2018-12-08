@@ -31,7 +31,7 @@ class SignUp extends React.Component <IPropsType ,IStateType> {
         <form onSubmit={this.handleSubmit}>
           <h5 className="text-dark">Sign Up</h5>
           <div className="form-group">
-            <input type="email" id='email' autoComplete="false" className="form-control" onChange={this.handleChange} aria-describedby="emailHelp" required={true} />
+            <input type="email" id='email' autoComplete="off" className="form-control" onChange={this.handleChange} aria-describedby="emailHelp" required={true} />
             <label htmlFor="email">Email</label>
             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>

@@ -3,14 +3,13 @@ import * as React from 'react'
 interface IpropsType {
   [key:string]:any
 }
-const ProjectDetails = ({projectid}:IpropsType):JSX.Element => {
-  console.log(projectid);
+const ProjectDetails = ({project}:IpropsType):JSX.Element => {
   return (
     <section className="project-details">
         <div className="card border-0">
           <div className="card-header border-0 bg-white text-dark">
             <div className="container">
-              <h2 className="card-title text-capitalize mb-4">{projectid.title} - {projectid.id} </h2>
+              <h2 className="card-title text-capitalize mb-4">{project.title} - {project.id} </h2>
             </div>
           </div>
           <div className="card-body">
