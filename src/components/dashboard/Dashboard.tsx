@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 // import components
 import ProjectList from '../projects/ProjectList'
 import Notifications from './Notifications'
@@ -8,8 +10,7 @@ import Notifications from './Notifications'
 interface IPropsType {
     [key:string]:number|string
 }
-
-class Dashboard extends React.Component< IPropsType > {
+class Dashboard extends React.Component< IPropsType, any > {
   public render():JSX.Element {
   	const { projects } = this.props;
     return (
@@ -28,9 +29,13 @@ class Dashboard extends React.Component< IPropsType > {
     )
   }
 }
-const mapStateToProps = (state:{[key:string]:any}) => {
+const mapStateToProps = (state:any) => {
   return {
-    projects: state.project.projects
+    projects: state.firestore.ordered.projects
   }
 }
-export default connect(mapStateToProps)(Dashboard);
+const enhance = compose(
+  firestoreConnect(['projects']),
+  connect(mapStateToProps),
+)
+export default enhance(Dashboard) as React.ComponentType
