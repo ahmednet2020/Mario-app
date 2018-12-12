@@ -10,7 +10,6 @@ const Home = (props: IpropsType):JSX.Element => {
     return (
         <main className='home mt-5 mb-5'>
 			<Dashboard />
-        	}
 		</main>
     )
 }

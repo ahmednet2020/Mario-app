@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 interface IpropsType {
-  [key:string]:any
+    [key:string]:any
 }
 const ProjectDetails = ({project}:IpropsType):JSX.Element => {
   return (
@@ -9,17 +9,17 @@ const ProjectDetails = ({project}:IpropsType):JSX.Element => {
         <div className="card border-0">
           <div className="card-header border-0 bg-white text-dark">
             <div className="container">
-              <h2 className="card-title text-capitalize mb-4">{project.title} - {project.id} </h2>
+              <h2 className="card-title text-capitalize mb-4">{project.title} </h2>
             </div>
           </div>
           <div className="card-body">
             <div className="container">
-              <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et labore quaerat quibusdam vel saepe, ab voluptate accusantium culpa nemo fuga earum? Soluta amet nobis officia sed neque fuga aperiam quia?Lorem ipsum dolor sit amet consectetur adipisicing elit. Et labore quaerat quibusdam vel saepe, ab voluptate accusantium culpa nemo fuga earum? Soluta amet nobis officia sed neque fuga aperiam quia?Lorem ipsum dolor sit amet consectetur adipisicing elit. Et labore quaerat quibusdam vel saepe, ab voluptate accusantium culpa nemo fuga earum? Soluta amet nobis officia sed neque fuga aperiam quia?Lorem ipsum dolor sit amet consectetur adipisicing elit. Et labore quaerat quibusdam vel saepe, ab voluptate accusantium culpa nemo fuga earum? Soluta amet nobis officia sed neque fuga aperiam quia?</p>
+              <p className="card-text">{project.content}</p>
             </div>
           </div>
           <div className="card-footer bg-dark text-white">
             <div className="container">
-              <p className="m-0 text-capitalize h6">Posted by The Net Ninja</p>
+              <p className="m-0 text-capitalize h6">Posted by {project.authorFirstName} {project.authorLastName}</p>
               <time className="card-subtitle">3rd September, 2am</time>
             </div>
           </div>
@@ -27,4 +27,5 @@ const ProjectDetails = ({project}:IpropsType):JSX.Element => {
     </section>
   )
 }
- export default ProjectDetails
+
+export default ProjectDetails

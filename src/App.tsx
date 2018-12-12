@@ -13,10 +13,10 @@ import Signin from './pages/Signin'
 import Signup from './pages/Signup'
 // start class
 interface IStateType {
-    [key:string]:number|string
+    [key:string]:any
 }
 interface IPropsType {
-    [key:string]:number|string
+    [key:string]:any
 }
 class App extends React.Component < IPropsType, IStateType > {
     constructor(props: IPropsType) {

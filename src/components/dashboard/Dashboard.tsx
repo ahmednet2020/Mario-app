@@ -38,4 +38,4 @@ const enhance = compose(
   firestoreConnect(['projects']),
   connect(mapStateToProps),
 )
-export default enhance(Dashboard) as React.ComponentType
+export default enhance(Dashboard) as React.ComponentType<any>
