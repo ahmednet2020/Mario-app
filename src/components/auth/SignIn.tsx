@@ -1,12 +1,14 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 
+import { signIn } from '../../actions/authActions'
 // interface state
 interface IStateType {
-    [key:string]:number|string
+    [key:string]:any
 }
 // interface props
 interface IPropsType {
-    [key:string]:number|string
+    [key:string]:any
 }
 // start class of SignIn
 class SignIn extends React.Component <IPropsType, IStateType> {
@@ -21,9 +23,10 @@ class SignIn extends React.Component <IPropsType, IStateType> {
   }
   public handleSubmit = (e:any) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signIn(this.state);
   }
   public render() {
+    const { authError } = this.props
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
@@ -39,10 +42,24 @@ class SignIn extends React.Component <IPropsType, IStateType> {
           <div className="form-group">
             <button type="submit" className="btn btn-primary">Login</button>
           </div>
+          {
+             authError && <div className="alert alert-danger" role="alert">
+                                      {authError}
+                                    </div>
+          }
         </form>
       </div>
     )
   }
 }
-
-export default SignIn
+const mapStateToProps = (state:any) => {
+  return{
+    authError: state.auth.authError
+  }
+}
+ const mapDispatchToProps = (dispatch:any) => {
+  return {
+    signIn: (creds:any) => dispatch(signIn(creds))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

@@ -13,7 +13,6 @@ const projectReducer = (state = initState, action:any):any => {
   			return state;
 		break;
 	}
-	return state;
 };
 
 export default projectReducer;
