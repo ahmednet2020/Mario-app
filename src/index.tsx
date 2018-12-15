@@ -6,10 +6,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Store from './Store';
 
-ReactDOM.render(
-	<Provider store={Store}>
-  		<App />
-  	</Provider>,
-  document.getElementById('root') as HTMLElement
-);
-registerServiceWorker();
+Store.firebaseAuthIsReady.then(() => {
+	ReactDOM.render(
+		<Provider store={Store}>
+	  		<App />
+	  	</Provider>,
+	  document.getElementById('root') as HTMLElement
+	);
+	registerServiceWorker();
+});
