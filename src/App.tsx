@@ -1,6 +1,5 @@
 import * as React from 'react'
 // import modules
-import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // css
 import './App.css'
@@ -40,10 +39,5 @@ class App extends React.Component < IPropsType, IStateType > {
         );
     }
 }
-function mapStateToProps(store:any) {
-  return {
-    auth:store.auth
-  }
-}
 // end class
-export default connect(mapStateToProps)(App);
+export default App;

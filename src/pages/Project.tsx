@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
+import { Redirect } from 'react-router-dom'
 import { compose } from 'redux'
 // import components
 import Comment from '../components/projects/Comment'
@@ -11,7 +12,8 @@ interface IpropsType {
     [key:string]:any
 }
 // start function jsx
-const Project = ({projectid, projects}: IpropsType):JSX.Element => {
+const Project = ({auth, projectid, projects}: IpropsType):JSX.Element => {
+	if(!auth.uid) { return <Redirect to='/Signin' /> }
 	if(projects)
 	{
 	    return (
@@ -32,6 +34,7 @@ const mapStateToProps = (state:any, ownProps:any) => {
 	const projectid = ownProps.match.params.projectid;
 	const projects = state.firestore.data.projects? state.firestore.data.projects[projectid]: null;
 	return {
+		auth:state.firebase.auth,
 		projectid,
 		projects,
 	}

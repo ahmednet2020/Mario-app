@@ -44,8 +44,8 @@ class SignIn extends React.Component <IPropsType, IStateType> {
           </div>
           {
              authError && <div className="alert alert-danger" role="alert">
-                                      {authError}
-                                    </div>
+                            {authError}
+                          </div>
           }
         </form>
       </div>

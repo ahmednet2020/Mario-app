@@ -11,7 +11,6 @@ class Navbar extends React.Component<any, any> {
 	public render():JSX.Element
 	{
 		const { auth } = this.props;
-		console.log(this.props);
 		return (
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
 				<div className="container">
@@ -29,13 +28,6 @@ class Navbar extends React.Component<any, any> {
 				</div>
 			</nav>
 		)
-	}
-	public componentDidUpdate()
-	{
-		if(this.props.auth.uid && this.props.history.location.pathname === '/Signin')
-		{
-			this.props.history.push('/')
-		}
 	}
 }
 const mapStateToProps = (state:any) => {
