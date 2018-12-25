@@ -18,4 +18,26 @@ export const signOut = () => {
       dispatch({ type: 'SIGNOUT_SUCCESS' })
     });
   }
-} 
+}
+
+export const signUp = (newUser:any) => {
+  return (dispatch:any, getState:any, {getFirebase, getFirestore}:any) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+
+    firebase.auth().createUserWithEmailAndPassword(
+      newUser.email, 
+      newUser.password
+    ).then((resp:any) => {
+      return firestore.collection('users').doc(resp.user.uid).set({
+        firstName: newUser.firstName,
+        initials: newUser.firstName[0] + newUser.lastName[0],
+        lastName: newUser.lastName,
+      });
+    }).then(() => {
+      dispatch({ type: 'SIGNUP_SUCCESS' });
+    }).catch((err:any) => {
+      dispatch({ type: 'SIGNUP_ERROR', err});
+    });
+  }
+}
