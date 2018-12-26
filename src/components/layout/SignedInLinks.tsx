@@ -14,7 +14,11 @@ const SignedInLinks = (props:any):JSX.Element => {
 				<a onClick={props.signOut} className='btn text-white nav-link rounded'>Log Out</a>
 			</li>
 			<li className='nav-item'>
-				<NavLink to='/' className='btn d-inline-block btn btn-light nav-link rounded-circle ml-3 text-dark'>NN</NavLink>
+				<NavLink to='/' className='btn d-inline-block btn btn-light nav-link rounded-circle ml-3 text-dark'>
+					{
+						props.profile.initials
+					}
+				</NavLink>
 			</li>
 		</ul>
 	)

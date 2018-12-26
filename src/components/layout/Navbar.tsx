@@ -10,7 +10,7 @@ import SignedOutLinks from './SignedOutLinks'
 class Navbar extends React.Component<any, any> {
 	public render():JSX.Element
 	{
-		const { auth } = this.props;
+		const { auth, profile } = this.props;
 		return (
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
 				<div className="container">
@@ -23,7 +23,7 @@ class Navbar extends React.Component<any, any> {
 				    	<span className="navbar-toggler-icon"/>
 					</button>
 					<div className="collapse navbar-collapse" id='navbar'>
-						{ auth.uid ? <SignedInLinks /> : <SignedOutLinks /> }
+						{ auth.uid ? <SignedInLinks profile={profile}/> : <SignedOutLinks /> }
 					</div>
 				</div>
 			</nav>
@@ -32,7 +32,8 @@ class Navbar extends React.Component<any, any> {
 }
 const mapStateToProps = (state:any) => {
   return{
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   }
 }
 export default withRouter(connect(mapStateToProps)(Navbar) as React.ComponentType<any>) 
