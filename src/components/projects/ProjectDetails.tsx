@@ -1,3 +1,4 @@
+import * as moment from 'moment'
 import * as React from 'react'
 
 interface IpropsType {
@@ -20,7 +21,7 @@ const ProjectDetails = ({project}:IpropsType):JSX.Element => {
           <div className="card-footer bg-dark text-white">
             <div className="container">
               <p className="m-0 text-capitalize h6">Posted by {project.authorFirstName} {project.authorLastName}</p>
-              <time className="card-subtitle">3rd September, 2am</time>
+              <time className="card-subtitle">{moment(project.createdAt.toDate()).calendar()}</time>
             </div>
           </div>
         </div>

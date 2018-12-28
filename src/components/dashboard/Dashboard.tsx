@@ -12,7 +12,7 @@ interface IPropsType {
 }
 class Dashboard extends React.Component< IPropsType, any > {
   public render():JSX.Element {
-  	const { projects } = this.props;
+  	const { projects }:any = this.props;
     return (
       <section className="dashboard">
       	<div className="container">
