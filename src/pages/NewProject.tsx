@@ -13,7 +13,7 @@ const NewProject = (props: IpropsType):JSX.Element => {
 	if(!props.auth.uid) { return <Redirect to='/Signin' /> }
     return (
         <main className='new-project mt-5 mb-5'>
-			<CreateProject />
+			<CreateProject history={props.history.push}/>
 		</main>
     )
 }

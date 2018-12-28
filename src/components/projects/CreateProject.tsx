@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { createProject } from '../../actions/projectActions'
+import { bindActionCreators } from 'redux'
+import { createProject, RESTProject } from '../../actions/projectActions'
 // interface state
 interface IStateType {
-    [key:string]:number|string
+    [key:string]:any
 }
 // interface props
 interface IPropsType {
-    createProject:any,
-    [key:string]:number|string
+    [key:string]:any
 }
 // start class of SignIn
 class CreateProject extends React.Component <IPropsType, IStateType> {
@@ -46,10 +46,24 @@ class CreateProject extends React.Component <IPropsType, IStateType> {
       </div>
     )
   }
-}
-const mapDispatchToProps = (dispatch:any) => {
-  return {
-    createProject: (project:any) => dispatch(createProject(project))
+  public componentDidUpdate()
+  {
+    if(this.props.last_create)
+    {
+      this.props.history(`/project/${this.props.last_create}`)
+    }
+  }
+  public componentWillUnmount()
+  {
+    this.props.RESTProject()
   }
 }
-export default connect(null, mapDispatchToProps)(CreateProject)
+const mapStateToProps = (state:any) => {
+  return {
+    last_create:state.project.last_create
+  }
+}
+const mapDispatchToProps = (dispatch:any) => {
+  return bindActionCreators({createProject, RESTProject}, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject)

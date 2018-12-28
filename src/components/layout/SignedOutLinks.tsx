@@ -1,6 +1,5 @@
 import * as React from 'react'
-
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
 const SignedOutLinks = ():JSX.Element => {
 	return (
@@ -15,4 +14,4 @@ const SignedOutLinks = ():JSX.Element => {
 	)
 }
 
-export default SignedOutLinks;
+export default withRouter(SignedOutLinks);
