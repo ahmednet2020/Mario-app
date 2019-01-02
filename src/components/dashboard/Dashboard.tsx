@@ -12,7 +12,7 @@ interface IPropsType {
 }
 class Dashboard extends React.Component< IPropsType, any > {
   public render():JSX.Element {
-  	const { projects }:any = this.props;
+  	const { projects, notifications }:any = this.props;
     return (
       <section className="dashboard">
       	<div className="container">
@@ -21,7 +21,7 @@ class Dashboard extends React.Component< IPropsType, any > {
 	            <ProjectList projects={projects}/>
 	          </div>
 	          <div className="col-12 col-md-6">
-	            <Notifications />
+	            <Notifications notifications={notifications}/>
 	          </div>
 	        </div>
         </div>
@@ -31,11 +31,15 @@ class Dashboard extends React.Component< IPropsType, any > {
 }
 const mapStateToProps = (state:any) => {
   return {
-    projects: state.firestore.ordered.projects
+    notifications:state.firestore.ordered.notifications,
+    projects: state.firestore.ordered.projects,
   }
 }
 const enhance = compose(
-  firestoreConnect(['projects']),
+  firestoreConnect([
+    { collection: 'projects' },
+    { collection: 'notifications', limit: 5 },
+    ]),
   connect(mapStateToProps),
 )
 export default enhance(Dashboard) as React.ComponentType<any>
