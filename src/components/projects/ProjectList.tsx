@@ -5,7 +5,7 @@ const ProjectList = ({projects}:any):JSX.Element => {
   return (
     <div className="project-list">
      { projects && [...projects]
-      .sort((x:any, y:any):any => (x.createdAt.seconds >= y.createdAt.seconds ? -1:1))
+     	.sort((x:any, y:any):any => (x.createdAt.seconds >= y.createdAt.seconds ? -1:1))
      	.map((project:any) => {
         return (
           <ProjectSummary project={project} key={project.id} />

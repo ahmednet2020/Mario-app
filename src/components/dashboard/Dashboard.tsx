@@ -37,8 +37,8 @@ const mapStateToProps = (state:any) => {
 }
 const enhance = compose(
   firestoreConnect([
-    { collection: 'projects' },
-    { collection: 'notifications', limit: 5 },
+    { collection: 'projects'},
+    { collection: 'notifications', limit: 5, orderBy: ['time', 'desc']},
     ]),
   connect(mapStateToProps),
 )

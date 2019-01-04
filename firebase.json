@@ -3,7 +3,7 @@
     "predeploy": "npm --prefix functions run build"
   },
   "hosting": {
-    "public": "dist",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -10,14 +10,10 @@ const Notifications = ({notifications}:any):JSX.Element => {
 			.sort((x:any, y:any):any => (x.time.seconds >= y.time.seconds ? -1:1))
 			.map((item:any) => {
 			return (
-				<li className="list-group-item rounded-0 card" key={item.id}>
-					<Link to={`/project/${item.projsId}`}>
-						<div className="card-body">
-							<h5 className="card-title">{item.user}</h5>
-							<h6 className="card-subtitle mb-2 text-muted">{moment(item.time.toDate()).fromNow()}</h6>
-							<p className="card-text">{item.content}</p>
-						</div>
-					</Link>
+				<li className="list-group-item rounded-0" key={item.id}>
+					<h5>{item.user}</h5>
+					<p className='m-0'>{item.content} - { item.projsId && <Link to={`/project/${item.projsId}`}> GO </Link>}</p>
+					<h6 className="text-muted">{moment(item.time.toDate()).fromNow()}</h6>
 				</li>
 			)
         })}
